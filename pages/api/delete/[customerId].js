@@ -18,7 +18,11 @@ export default async function handler(req, res) {
         await Customer.deleteOne({_id: id})
         res.status(200).json({status:"success" , message : "Data deleted successfully"})
     } catch (error) {
-        
+        console.log(err);
+      res.status(500).json({
+        status: "failed",
+        message: "Error in deleting data in DB",
+      });
     }
   }
 }
