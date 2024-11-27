@@ -1,4 +1,5 @@
 import Customer from "../../../models/Customer";
+import connectDB from "../../../utils/connectDB";
 
 export default async function handler(req, res) {
   try {
@@ -22,14 +23,14 @@ export default async function handler(req, res) {
       customer.email = data.email;
       customer.phone = data.phone;
       customer.address = data.address;
-      customer.postalCode = data.postalCOde;
+      customer.postalCode = data.postalCode;
       customer.date = data.date;
-      customer.products = data.date;
+      customer.products = data.products;
       customer.updatedAt = Date.now();
       customer.save();
       res.status(200).json({ status: "success", data: customer });
     } catch (error) {
-      console.log(err);
+      console.log(error);
       res.status(500).json({
         status: "failed",
         message: "Error in updating data from DB",
