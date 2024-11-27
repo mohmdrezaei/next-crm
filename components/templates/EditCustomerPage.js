@@ -5,7 +5,6 @@ import moment from "moment";
 
 function EditCustomerPage({ data, id }) {
   const date = data.date ? moment(data.date).utc().format("YYYY-MM-DD") : "";
-  console.log({ data, id });
   const router = useRouter();
   const [form, setForm] = useState({
     name: data.name,
